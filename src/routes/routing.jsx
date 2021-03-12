@@ -1,5 +1,6 @@
-import Inicio from '../components/Inicio';
-import Nosotros from '../components/Nosotros';
+import Inicio from '../components/public/Inicio';
+import Nosotros from '../components/public/Nosotros';
+import Login from '../components/Auth/Login';
 
 
 var SiteRoutes = [
@@ -12,6 +13,11 @@ var SiteRoutes = [
     path: '/Nosotros',
     name: 'Nosotros',
     component: Nosotros
+  },
+  {
+    path: '/Login',
+    name: 'Login',
+    component: Login
   },
   { path: '/', pathTo: '/Inicio', name: 'Inicio', redirect: true }
 ];

@@ -27,25 +27,25 @@ export default class Fulllayout extends React.Component {
                     </div>
                 </div>
 
-                <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+                <Navbar collapseOnSelect expand="lg" bg="light" fixed="top">
                     <Navbar.Brand href="#home"><img src={Logo} /></Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mr-auto">
-                            <Nav.Link href="#features"><Link>Inicio</Link></Nav.Link>
-                            <Nav.Link href="#pricing"><Link>Nosotros</Link></Nav.Link>
-                            <Nav.Link href="#pricing"><Link>Servicios</Link></Nav.Link>
-                            <Nav.Link href="#pricing"><Link>Contactenos</Link></Nav.Link>
+                            <Link to="/Inicio" className='text-dark nav-link'>Inicio</Link>
+                            <Link to="/Nosotros" className='text-dark nav-link'>Nosotros</Link>
+                            <Link to="/Servicios" className='text-dark nav-link'>Servicios</Link>
+                            <Link to="/Contactos" className='text-dark nav-link'>Contactenos</Link>
                         </Nav>
                         <Nav>
-                            <Nav.Link href="#deets">Registrar</Nav.Link>
-                            <Nav.Link eventKey={2} href="#memes">
-                                Iniciar Sesion
-                        </Nav.Link>
+                        <Link to="/Login" className='text-secondary nav-link' >Registrar</Link>
+                        <Link to="/Login" className='text-secondary nav-link' >Iniciar Sesion</Link>
+                      
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>
 
+               
                 <Switch>
                     {SiteRoutes.map((prop, key) => {
                         if (prop.redirect) {
@@ -57,7 +57,7 @@ export default class Fulllayout extends React.Component {
                         }
                     })}
                 </Switch>
-
+                
             </>
         )
     }
