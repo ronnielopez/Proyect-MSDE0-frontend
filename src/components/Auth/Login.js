@@ -15,12 +15,12 @@ function Login() {
                                         <form>
                                             <div className="form-label-group">
                                                 <input type="email" id="inputEmail" className="form-control" placeholder="Email address" required />
-                                                    <label>Email address</label>
+                                                    <label>Correo electronico</label>
                                                 </div>
 
                                                 <div className="form-label-group">
                                                     <input type="password" id="inputPassword" className="form-control" placeholder="Password" required />
-                                                        <label>Password</label>
+                                                        <label>Contraseña</label>
                                                 </div>
                                                 <button className="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Iniciar Sesion</button>
                                                 </form>

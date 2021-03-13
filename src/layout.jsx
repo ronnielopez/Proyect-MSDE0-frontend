@@ -39,7 +39,7 @@ export default class Fulllayout extends React.Component {
                             <Link to="/Clinicas" className='text-dark nav-link'>Clinicas</Link>
                         </Nav>
                         <Nav>
-                            <Link to="/Login" className='text-secondary nav-link' >Registrar</Link>
+                            <Link to="/Registrar" className='text-secondary nav-link' >Registrar</Link>
                             <Link to="/Login" className='text-secondary nav-link' >Iniciar Sesion</Link>
 
                         </Nav>

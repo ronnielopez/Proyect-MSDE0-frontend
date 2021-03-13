@@ -962,6 +962,257 @@ section.pricing-plans {
 		transform: scale(1.05);
 	}
 }
+/*--------------------------- Nosotros -----------------------------*/
+
+.centro{
+  align-self: center;
+}
+.img-center{
+  margin-left: 100px;
+}
+
+/*--------------------------- Servicios -----------------------------*/
+#sec {
+  font-family: "Raleway", sans-serif;
+  padding: 50px 0;
+  background: #fff;
+  text-align: center;
+  word-wrap: break-word;
+}
+#sec h2 {
+  font-weight: 200;
+  font-size: 30px;
+  color: #63B7E6;
+}
+#sec ul {
+  margin: 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  list-style: none;
+}
+#sec ul li {
+  padding: 40px;
+  width: 300px;
+  transition: box-shadow 0.3s;
+}
+#sec ul li:hover {
+  box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+#sec ul li:hover .iconoS {
+  color: #63B7E6;
+}
+#sec ul li:hover p {
+  color: #555;
+}
+#sec ul li:hover h3 {
+  color: #63B7E6;
+}
+#sec ul li:hover h3:after {
+  width: 25px;
+}
+#sec ul li .iconoS {
+  font-size: 2.6em;
+  display: block;
+  transition: color 0.3s;
+  color: #A2A2A2;
+  margin-left: 85px;
+}
+#sec ul li .iconoS:before, #sec ul li .iconoS:after {
+  position: static;
+}
+#sec ul li h3 {
+  color: #6f6f6f;
+  display: inline-block;
+  font-size: 24px;
+  font-weight: 100;
+  transition: color 0.3s;
+}
+#sec ul li h3:after {
+  content: "";
+  position: relative;
+  left: 50%;
+  top: 5px;
+  transform: translateX(-50%);
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: #6f6f6f;
+  transition: width 0.3s;
+}
+#sec ul li p {
+  color: #A2A2A2;
+  text-align: left;
+  text-indent: 1em;
+  font-size: 16px;
+  line-height: 26px;
+  transition: color 0.3s;
+}
+
+/*--------------------------- Clinica -----------------------------*/
+#cardClinica {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+}
+#cardClinica .booking-card {
+  position: relative;
+  width: 300px;
+  display: flex;
+  flex: 0 0 300px;
+  flex-direction: column;
+  margin: 20px;
+  margin-bottom: 30px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-position: center center;
+  background-size: cover;
+  text-align: center;
+  color: #0a4870;
+  background-image: url('https://p4.wallpaperbetter.com/wallpaper/354/997/217/clinic-doctors-glass-hallway-wallpaper-preview.jpg');
+  transition: 0.3s;
+}
+#cardClinica .booking-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(10, 72, 112, 0);
+  transition: 0.3s;
+}
+#cardClinica .booking-card .book-container {
+  height: 200px;
+}
+#cardClinica .booking-card .book-container .content {
+  position: relative;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  transform: translateY(-200px);
+  transition: 0.3s;
+}
+#cardClinica .booking-card .book-container .content .btn {
+  border: 3px solid white;
+  padding: 10px 15px;
+  background: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.3em;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+#cardClinica .booking-card .book-container .content .btn:hover {
+  background: white;
+  border: 0px solid white;
+  color: #0a4870;
+}
+#cardClinica .booking-card .informations-container {
+  flex: 1 0 auto;
+  padding: 20px;
+  background: #f0f0f0;
+  transform: translateY(206px);
+  transition: 0.3s;
+}
+#cardClinica .booking-card .informations-container .title {
+  position: relative;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+#cardClinica .booking-card .informations-container .title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  width: 50px;
+  margin: auto;
+  background: #0a4870;
+}
+#cardClinica .booking-card .informations-container .price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+#cardClinica .booking-card .informations-container .price .icon {
+  margin-right: 10px;
+}
+#cardClinica .booking-card .informations-container .more-information {
+  opacity: 0;
+  transition: 0.3s;
+}
+#cardClinica .booking-card .informations-container .more-information .info-and-date-container {
+  display: flex;
+}
+#cardClinica .booking-card .informations-container .more-information .info-and-date-container .box {
+  flex: 1 0;
+  padding: 15px;
+  margin-top: 20px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  background: white;
+  font-weight: bold;
+  font-size: 0.9em;
+}
+#cardClinica .booking-card .informations-container .more-information .info-and-date-container .box .icon {
+  margin-bottom: 5px;
+}
+#cardClinica .booking-card .informations-container .more-information .info-and-date-container .box.info {
+  color: #ec992c;
+  margin-right: 10px;
+}
+#cardClinica .booking-card .informations-container .more-information .disclaimer {
+  margin-top: 20px;
+  font-size: 0.8em;
+  color: #7d7d7d;
+}
+#cardClinica .booking-card:hover::before {
+  background: rgba(10, 72, 112, 0.6);
+}
+#cardClinica .booking-card:hover .book-container .content {
+  opacity: 1;
+  transform: translateY(0px);
+}
+#cardClinica .booking-card:hover .informations-container {
+  transform: translateY(0px);
+}
+#cardClinica .booking-card:hover .informations-container .more-information {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  #cardClinica .booking-card::before {
+    background: rgba(10, 72, 112, 0.6);
+  }
+  #cardClinica .booking-card .book-container .content {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  #cardClinica .booking-card .informations-container {
+    transform: translateY(0px);
+  }
+  #cardClinica .booking-card .informations-container .more-information {
+    opacity: 1;
+  }
+}
+
+.iconClinica{
+  width:24px;
+  height:24px;
+}
 
 
 /*--------------------------- Footer -----------------------------*/
