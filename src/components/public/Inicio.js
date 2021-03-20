@@ -1,16 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import {Carousel} from 'react-bootstrap';
 import Img1 from '../../img/gallery/about1.png';
 import Img2 from '../../img/gallery/about2.png';
 import {Link} from 'react-router-dom';
+import axios from 'axios';
 
 
 function Inicio() {
   const [index, setIndex] = useState(0);
+  const [planes, setPlanes] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
   };
+
+  useEffect(()=>{
+    
+    axios.get("http://127.0.0.1:8000/api/planes").then((response)=>{
+       setPlanes(response.data);
+       setIsLoading(true);     
+    });
+
+  },[]);
+
   return (
     <>
       <Carousel
@@ -142,21 +155,21 @@ function Inicio() {
             </div>
           </div>
     
-          <section className="pricing-plans text-center">
+  <section className="pricing-plans text-center">
 		<div className="container">
 			<div className="row">
 				<div className="col-md-4 animated slideInRight">
 					<div className="card pricing-box rounded">
 						<div className="card-block">
 							<h4 className="card-title">
-								Basic
+              {isLoading ? planes[0].nombre : 'Cargando datoos'}
 							</h4>
 							<h6 className="card-text">
 								<sup className="currency">
 									$
 								</sup>
 								<span className="amount">
-									9
+									{isLoading ? planes[0].precio : 'Cargando datoos'}
 								</span>
 								<span className="month">
 									/ mo
@@ -165,16 +178,13 @@ function Inicio() {
 						</div>
 						<ul className="list-group list-group-flush">
 							<li className="list-group-item text-center d-inline-block">
-								Lorem
+              {isLoading ? planes[0].beneficio1 : 'Cargando datoos'}
 							</li>
 							<li className="list-group-item text-center d-inline-block">
-								Ipsum
+              {isLoading ? planes[0].beneficio2 : 'Cargando datoos'}
 							</li>
 							<li className="list-group-item text-center d-inline-block">
-								datare
-							</li>
-							<li className="list-group-item text-center d-inline-block">
-								Toye
+              {isLoading ? planes[0].beneficio3 : 'Cargando datoos'}
 							</li>
 						</ul>
 						<div className="card-block">
@@ -182,18 +192,19 @@ function Inicio() {
 						</div>
 					</div>
 				</div>
+
 				<div className="col-md-4">
 					<div className="card pricing-box pricing-premium">
 						<div className="card-block">
-							<h4 className="card-title">
-								Premium
+            <h4 className="card-title">
+              {isLoading ? planes[1].nombre : 'Cargando datoos'}
 							</h4>
 							<h6 className="card-text">
 								<sup className="currency">
 									$
 								</sup>
 								<span className="amount">
-									19
+									{isLoading ? planes[1].precio : 'Cargando datoos'}
 								</span>
 								<span className="month">
 									/ mo
@@ -201,17 +212,14 @@ function Inicio() {
 							</h6>
 						</div>
 						<ul className="list-group list-group-flush">
-            <li className="list-group-item text-center d-inline-block">
-								Lorem
+							<li className="list-group-item text-center d-inline-block">
+              {isLoading ? planes[1].beneficio1 : 'Cargando datoos'}
 							</li>
 							<li className="list-group-item text-center d-inline-block">
-								Ipsum
+              {isLoading ? planes[1].beneficio2 : 'Cargando datoos'}
 							</li>
 							<li className="list-group-item text-center d-inline-block">
-								datare
-							</li>
-							<li className="list-group-item text-center d-inline-block">
-								Toye
+              {isLoading ? planes[1].beneficio3 : 'Cargando datoos'}
 							</li>
 						</ul>
 						<div className="card-block">
@@ -222,15 +230,15 @@ function Inicio() {
 				<div className="col-md-4 animated slideInLeft">
 					<div className="card pricing-box">
 						<div className="card-block">
-							<h4 className="card-title">
-								Gold
+            <h4 className="card-title">
+              {isLoading ? planes[2].nombre : 'Cargando datoos'}
 							</h4>
 							<h6 className="card-text">
 								<sup className="currency">
 									$
 								</sup>
 								<span className="amount">
-									39
+									{isLoading ? planes[2].precio : 'Cargando datoos'}
 								</span>
 								<span className="month">
 									/ mo
@@ -238,17 +246,14 @@ function Inicio() {
 							</h6>
 						</div>
 						<ul className="list-group list-group-flush">
-            <li className="list-group-item text-center d-inline-block">
-								Lorem
+							<li className="list-group-item text-center d-inline-block">
+              {isLoading ? planes[2].beneficio1 : 'Cargando datoos'}
 							</li>
 							<li className="list-group-item text-center d-inline-block">
-								Ipsum
+              {isLoading ? planes[2].beneficio2 : 'Cargando datoos'}
 							</li>
 							<li className="list-group-item text-center d-inline-block">
-								datare
-							</li>
-							<li className="list-group-item text-center d-inline-block">
-								Toye
+              {isLoading ? planes[2].beneficio3 : 'Cargando datoos'}
 							</li>
 						</ul>
 						<div className="card-block">

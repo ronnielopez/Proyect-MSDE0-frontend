@@ -4,6 +4,7 @@ import Login from '../components/Auth/Login';
 import Registrar from '../components/Auth/Registrar';
 import Servicio from '../components/public/Servicio';
 import Clinicas from '../components/public/Clinicas';
+import Planes from '../components/Auth/Planes';
 
 
 
@@ -27,6 +28,11 @@ var SiteRoutes = [
     path: '/Clinicas',
     name: 'Clinica',
     component: Clinicas
+  },
+  {
+    path: '/Planes',
+    name: 'Planes',
+    component: Planes
   },
   {
     path: '/Login',

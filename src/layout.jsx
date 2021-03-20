@@ -1,16 +1,32 @@
 import React from 'react';
-import { Route, Switch, Redirect, Link } from 'react-router-dom';
+import { Route, Switch, Redirect, Link, useHistory } from 'react-router-dom';
 import SiteRoutes from './routes/routing.jsx';
 import Logo from './img/logo/logo.png';
 import Logo2 from './img/logo/logo2_footer.png';
 import Loder from './img/logo/loder.png';
-import { Navbar, Nav } from 'react-bootstrap'
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 import './css/style.css';
 import './js/main.js';
+import swal from 'sweetalert';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 
 export default class Fulllayout extends React.Component {
-    componentDidMount() {
+    constructor(token, nombre){
+        super(token,nombre);
+        this.token = sessionStorage.getItem('Token');
+        this.nombre = sessionStorage.getItem('Nombre');
+        
+    }
+
+    CerrarSesion(){
+        
+        sessionStorage.removeItem('Token');
+        sessionStorage.removeItem('Nombre');
+        sessionStorage.removeItem('Estado');
+        sessionStorage.removeItem('Email');
+        swal({ title: 'Sesion Cerrada', icon: 'success', button: 'Aceptar', closeOnClickOutside: false, closeOnEsc: false }).then(value=>{window.location.href = '#/Inicio'; window.location.reload(true);});
     }
 
     render() {
@@ -39,8 +55,23 @@ export default class Fulllayout extends React.Component {
                             <Link to="/Clinicas" className='text-dark nav-link'>Clinicas</Link>
                         </Nav>
                         <Nav>
+                            {this.token != null ? 
+                            <>
+                            <NavDropdown title={this.nombre} id="collasible-nav-dropdown">
+                            <NavDropdown.Item >Perfil</NavDropdown.Item>
+                            <NavDropdown.Divider />
+                            <NavDropdown.Item onClick={()=>{
+                                this.CerrarSesion();
+                            }}>Cerrar Sesion</NavDropdown.Item>
+                            </NavDropdown> 
+                            </>
+                            :
+                            <>
                             <Link to="/Registrar" className='text-secondary nav-link' >Registrar</Link>
                             <Link to="/Login" className='text-secondary nav-link' >Iniciar Sesion</Link>
+                            </>
+                            }
+                            
 
                         </Nav>
                     </Navbar.Collapse>
