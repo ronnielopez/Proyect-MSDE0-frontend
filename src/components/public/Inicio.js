@@ -161,7 +161,7 @@ function Inicio() {
 				<div className="col-md-4 animated slideInRight">
 					<div className="card pricing-box rounded">
 						<div className="card-block">
-							<h4 className="card-title">
+							<h4 className="card-title">                
               {isLoading ? planes[0].nombre : 'Cargando datoos'}
 							</h4>
 							<h6 className="card-text">
