@@ -5,6 +5,7 @@ import Registrar from '../components/Auth/Registrar';
 import Servicio from '../components/public/Servicio';
 import Clinicas from '../components/public/Clinicas';
 import Planes from '../components/Auth/Planes';
+import Perfil from '../components/public/Perfil';
 
 
 
@@ -43,6 +44,11 @@ var SiteRoutes = [
     path: '/Registrar',
     name: 'Registrar',
     component: Registrar
+  },
+  {
+    path: '/Perfil',
+    name: 'Perfil',
+    component: Perfil
   },
   { path: '/', pathTo: '/Inicio', name: 'Inicio', redirect: true }
 ];

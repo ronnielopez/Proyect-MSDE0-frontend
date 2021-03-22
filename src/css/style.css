@@ -1400,3 +1400,10 @@ section.pricing-plans {
       padding-bottom: 50px
   }
 }
+
+/*--------------------------- Perfil -----------------------------*/
+
+.btn-admin-dir{
+
+  float: right;
+}
