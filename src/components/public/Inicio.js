@@ -19,7 +19,7 @@ function Inicio() {
     
     axios.get("http://127.0.0.1:8000/api/planes").then((response)=>{
        setPlanes(response.data);
-       setIsLoading(true);     
+       setIsLoading(true);   
     });
 
   },[]);
