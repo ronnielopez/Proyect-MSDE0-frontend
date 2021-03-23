@@ -22,56 +22,59 @@ function Perfil() {
               <div class="card">
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center">
-                    <img src={Avatar} alt="Admin" class="rounded-circle" width="150"></img>
                     <div class="mt-3">
-                      <h4>John Doe</h4>
-                      <p class="text-secondary mb-1">Administrador</p>
-                      <p class="text-muted font-size-sm">San Salvador, El Salvador</p>
+                      <h4>{sessionStorage.getItem('Nombre')}</h4>
+                      <p class="text-secondary mb-1">{sessionStorage.getItem('role')}</p>
+                      <button class="btn btn-primary">Mis Clinicas</button>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-
             <div class="col-md-8">
               <div class="card mb-3">
                 <div class="card-body">
+
                   <div class="row">
                     <div class="col-sm-3">
                       <h6 class="mb-0">Nombre Completo</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      John Doe
+                      {sessionStorage.getItem('Nombre')}
                     </div>
                   </div>
+
                   <hr></hr>
                   <div class="row">
                     <div class="col-sm-3">
                       <h6 class="mb-0">Correo</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      admin@gmail.com
+                     {sessionStorage.getItem('Email')}
                     </div>
                   </div>
+
                   <hr></hr>
                   <div class="row">
                     <div class="col-sm-3">
-                      <h6 class="mb-0">Teléfono</h6>
+                      <h6 class="mb-0">Suscripción</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      7844-2493
+                    {sessionStorage.getItem('plan')}
                     </div>
                   </div>
+
                   <hr></hr>
                   <div class="row">
                     <div class="col-sm-3">
-                      <h6 class="mb-0">Teléfono fijo</h6>
+                      <h6 class="mb-0">Rol</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      
+                    {sessionStorage.getItem('status')}
                     </div>
                   </div>
+
                   <hr></hr>
                   <div class="row">
                     <div class="col-sm-3">
@@ -80,7 +83,7 @@ function Perfil() {
                     <div class="col-sm-9 text-secondary">
                         10ª Avenida Sur y Calle Lara No. 934, Barrio San Jacinto
                         <hr></hr>
-                        <button class="btn-admin-dir">Administrar direcciones</button>
+                        <button class="btn btn-primary">Administrar direcciones</button>
                     </div>
                   </div>
                 </div>
