@@ -59,6 +59,7 @@ export default class Fulllayout extends React.Component {
                             <>
                             <NavDropdown title={this.nombre} id="collasible-nav-dropdown">
                             <NavDropdown.Item >Perfil</NavDropdown.Item>
+                            <Link to="/MisClinicas" className='text-dark dropdown-item'>Mis clinicas</Link>
                             <NavDropdown.Divider />
                             <NavDropdown.Item onClick={()=>{
                                 this.CerrarSesion();

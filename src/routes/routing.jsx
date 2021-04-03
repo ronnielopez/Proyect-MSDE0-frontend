@@ -5,6 +5,8 @@ import Registrar from '../components/Auth/Registrar';
 import Servicio from '../components/public/Servicio';
 import Clinicas from '../components/public/Clinicas';
 import Planes from '../components/Auth/Planes';
+import CrearClinica from '../components/services/crearClinica';
+import MisClinicas from '../components/dashboard/MisClinicas';
 
 
 
@@ -43,6 +45,16 @@ var SiteRoutes = [
     path: '/Registrar',
     name: 'Registrar',
     component: Registrar
+  },
+  {
+    path: '/NuevaClinica',
+    name: 'Crear clinica',
+    component: CrearClinica
+  },
+  {
+    path: '/MisClinicas',
+    name: 'Mis clinicas',
+    component: MisClinicas
   },
   { path: '/', pathTo: '/Inicio', name: 'Inicio', redirect: true }
 ];
