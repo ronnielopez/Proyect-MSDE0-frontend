@@ -1446,5 +1446,11 @@ input {
 }
 
 .rccs__card--unknown > div {
-	background: #75c9a5;
+	background: #3957ff;
+}
+
+.vertical-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
