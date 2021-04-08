@@ -2,38 +2,24 @@ import React, { useState } from 'react';
 import { Jumbotron, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-
-function Perfil() {
+function Expediente() {
 
   return (
     <>
       <Jumbotron className="my-5">
-        <h1 className="text-right my-5 pr-5">Perfil</h1>
+        <h1 className="text-right my-5 pr-5">Expediente</h1>
       </Jumbotron>
 
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
             <div className="section-tittle text-center mb-100">
-              <h2>Perfil</h2>
+              <h2>Expediente</h2>
             </div>
             <div class="row gutters-sm">
 
-            <div class="col-md-4 mb-3">
-              <div class="card">
-                <div class="card-body">
-                  <div class="d-flex flex-column align-items-center text-center">
-                    <div class="mt-3">
-                      <h4>{sessionStorage.getItem('Nombre')}</h4>
-                      <p class="text-secondary mb-1">{sessionStorage.getItem('rubro')}</p>
-                      <Link to="/Expediente" className="btn btn-primary">Expediente</Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
 
-            <div class="col-md-8">
+            <div class="col-md-12">
               <div class="card mb-3">
                 <div class="card-body">
 
@@ -65,16 +51,6 @@ function Perfil() {
                     {sessionStorage.getItem('plan')}
                     </div>
                   </div>
-                  
-                  <hr></hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Metodo de pago:</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                    <Link to="/Tarjeta" className="btn btn-primary">Agregar tarjeta de credito</Link>
-                    </div>
-                  </div>
 
                   <hr></hr>
                   <div class="row">
@@ -94,7 +70,7 @@ function Perfil() {
                     <div class="col-sm-9 text-secondary">
                         10ª Avenida Sur y Calle Lara No. 934, Barrio San Jacinto
                         <hr></hr>
-                        <button class="btn btn-primary">Administrar direcciones</button>
+                        <Link to="/Perfil" className="btn btn-primary">Volver a mi Perfil</Link>
                     </div>
                   </div>
                 </div>
@@ -120,4 +96,4 @@ function Perfil() {
   );
 }
 
-export default Perfil;
+export default Expediente;

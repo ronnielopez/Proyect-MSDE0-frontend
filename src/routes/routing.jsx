@@ -6,6 +6,8 @@ import Servicio from '../components/public/Servicio';
 import Clinicas from '../components/public/Clinicas';
 import Planes from '../components/Auth/Planes';
 import Perfil from '../components/public/Perfil';
+import Expediente from '../components/public/Expediente';
+import Tarjeta from '../components/public/Tarjeta';
 
 
 
@@ -49,6 +51,16 @@ var SiteRoutes = [
     path: '/Perfil',
     name: 'Perfil',
     component: Perfil
+  },
+  {
+    path: '/Expediente',
+    name: 'Expediente',
+    component: Expediente
+  },
+  {
+    path: '/Tarjeta',
+    name: 'Tarjeta',
+    component: Tarjeta
   },
   { path: '/', pathTo: '/Inicio', name: 'Inicio', redirect: true }
 ];
