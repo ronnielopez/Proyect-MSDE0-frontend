@@ -30,13 +30,13 @@ export function PlanesAuth(estado) {
         axios.put(`http://127.0.0.1:8000/api/planes/${id}`, dataSubmit.estado).then((response) => {
             
             if (dataSubmit.estado.estado === 3) {
-                swal({ title: 'Disfruta de tus beneficios estandar', icon: 'success', button: 'Aceptar', closeOnClickOutside: false, closeOnEsc: false }).then(value => { window.location.href = '#/Inicio'; window.location.reload(true); });
+                swal({ title: 'Disfruta de tus beneficios estandar', icon: 'success', button: 'Aceptar', closeOnClickOutside: false, closeOnEsc: false }).then(value => { window.location.href = '#/NuevaClinica'; window.location.reload(true); });
             }
             else if (dataSubmit.estado.estado === 4) {
-                swal({ title: 'Disfruta de tus beneficios Gold', icon: 'success', button: 'Aceptar', closeOnClickOutside: false, closeOnEsc: false }).then(value => { window.location.href = '#/Inicio'; window.location.reload(true); });
+                swal({ title: 'Disfruta de tus beneficios Gold', icon: 'success', button: 'Aceptar', closeOnClickOutside: false, closeOnEsc: false }).then(value => { window.location.href = '#/NuevaClinica'; window.location.reload(true); });
             }
             else {
-                swal({ title: 'Disfruta de tus beneficios Premium', icon: 'success', button: 'Aceptar', closeOnClickOutside: false, closeOnEsc: false }).then(value => { window.location.href = '#/Inicio'; window.location.reload(true); });
+                swal({ title: 'Disfruta de tus beneficios Premium', icon: 'success', button: 'Aceptar', closeOnClickOutside: false, closeOnEsc: false }).then(value => { window.location.href = '#/NuevaClinica'; window.location.reload(true); });
             }
         }).catch((error) => {
             swal({ title: 'Hubo un error en completar tu solicitud', icon: 'error', button: 'Aceptar', closeOnClickOutside: false, closeOnEsc: false });

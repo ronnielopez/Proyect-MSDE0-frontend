@@ -24,6 +24,7 @@ function CrearClinica() {
         //if (Token == null) {
           //  history.push("/Inicio");
         //}
+        
         const data = axios.get("http://127.0.0.1:8000/api/categorias").then((response) => {
                 let datos = [];
                 response.data.map((doc)=>{
@@ -39,7 +40,7 @@ function CrearClinica() {
 
 
                        
-        return () => data();
+        //return () => data();
 
     }, []);
 
@@ -56,11 +57,19 @@ function CrearClinica() {
             userId: UsuarioId,
             categoriaId: cate
         }   
-        CreateClinica(data);
+        CreateClinica(formData(data));
     }
 
+    const formData = (obj) => {
+        var form_data = new FormData();
+        for (var key in obj) {
+            form_data.append(key, obj[key]);
+        }
+        return form_data;
+    }
+        
     
-
+        /*
     const checkboxController = event =>{
         setCategoria(prev =>([
             ...prev,
@@ -68,7 +77,7 @@ function CrearClinica() {
         ]));
         console.log("checkedItems: ", categoria);
     }
-
+    */
     return (
         <>
             <div className="container my-5 py-5">

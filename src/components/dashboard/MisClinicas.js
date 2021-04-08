@@ -13,6 +13,7 @@ function MisClinicas() {
     const [action, setAction] = useState('');
     const [loading, setLoading] = useState(false);
     const [show, setShow] = useState(false);
+    const [cargar, setCargar] = useState(false);
     let Token = sessionStorage.getItem("Token");
     
     useEffect(() => {
@@ -42,7 +43,7 @@ function MisClinicas() {
 
 
 
-        return () => data();
+        //return () => data();
 
 
     }, []);
@@ -54,13 +55,22 @@ function MisClinicas() {
                 response.data.map((doc) => {
                     datos.push({
                         id: doc.id,
-                        nombre: doc.nombre
+                        nombre:doc.nombre,
+                        ubicacion:doc.ubicacion,
+                        puntosReferencia:doc.puntosReferencia,
+                        horarioI:doc.horarioI,
+                        horarioF:doc.horarioF,
+                        descripcion:doc.descripcion,
+                        telefono:doc.telefono,
+                        municipio:doc.municipio,
+                        departamento:doc.departamento
                     });
                 });
 
                 setSucursal(datos);
                 setAction(1);
                 setShow(true);
+                setCargar(true);
             });
           
     }
@@ -69,6 +79,13 @@ function MisClinicas() {
             <Jumbotron className="my-5">
                 <h1 className="text-right my-5 pr-5">Mis Clinicas</h1>
             </Jumbotron>
+            <div className="container">
+                <div className="row">
+                    <div className="col-lg-12 text-right">
+                    <Button variant="primary" href="#/NuevaClinica">Crear clinica</Button>
+                    </div>
+                </div>
+            </div>
 
             <div className="container">
                 <div className="row py-3">
@@ -106,15 +123,16 @@ function MisClinicas() {
                     }
                 </div>
             </div>
-
-            <Modals
+               
+                <Modals
                 show={show}
                 onHide={() => setShow(false)}
                 animation={false}
                 actionstate={action}
                 clinica={clinica}
                 sucursal={sucursal}
-            />
+                 />
+              
             
         </>
     );

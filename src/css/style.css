@@ -991,6 +991,26 @@ section.pricing-plans {
 }
 
 /*--------------------------- Clinica -----------------------------*/
+.sidebar {
+  background-color: rgba(35, 55, 75, 0.9);
+  color: #ffffff;
+  padding: 6px 12px;
+  font: 15px/24px monospace;
+  z-index: 1;
+  position: absolute;
+  top: 65px;
+  left: 20px;
+  margin: 12px;
+  border-radius: 4px;
+}
+.map-container {
+  position: relative;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  height: 400px;
+  }
 #cardClinica {
   display: flex;
   flex-wrap: wrap;
@@ -1182,7 +1202,7 @@ section.pricing-plans {
 .contact-form .label {
   position: absolute;
   left: 20px;
-  bottom: 11px;
+  bottom: 20px;
   font-size: 18px;
   line-height: 26px;
   font-weight: 400;
