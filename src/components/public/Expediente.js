@@ -30,49 +30,15 @@ function Expediente() {
                     <div class="col-sm-9 text-secondary">
                       {sessionStorage.getItem('Nombre')}
                     </div>
-                  </div>
+                  </div>   
 
                   <hr></hr>
                   <div class="row">
                     <div class="col-sm-3">
-                      <h6 class="mb-0">Correo</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                     {sessionStorage.getItem('Email')}
+                    <Link to="/Perfil" className="btn btn-primary">Volver a mi Perfil</Link>
                     </div>
                   </div>
-
-                  <hr></hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Suscripción</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                    {sessionStorage.getItem('plan')}
-                    </div>
-                  </div>
-
-                  <hr></hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Rol</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                    {sessionStorage.getItem('status')}
-                    </div>
-                  </div>
-
-                  <hr></hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Dirección</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                        10ª Avenida Sur y Calle Lara No. 934, Barrio San Jacinto
-                        <hr></hr>
-                        <Link to="/Perfil" className="btn btn-primary">Volver a mi Perfil</Link>
-                    </div>
-                  </div>
+                  
                 </div>
               </div>
             </div>

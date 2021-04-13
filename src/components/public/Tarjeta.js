@@ -6,16 +6,14 @@ import 'react-credit-cards/es/styles-compiled.css'
 import swal from 'sweetalert';
 
 
-function Tarjeta() {
+const Tarjeta = () => {
   const nombreString = new String(sessionStorage.getItem('Nombre'));
   const [data, setData] = useState({
     cvc: "",
-    expiry: "08/23",
-    focus: "",
-    name: nombreString,
+    expiry: "",
+    name: "",
     number: ""
   });
-  
   const handleInputChange = (e) => {
     setData({
       ...data,
@@ -23,21 +21,19 @@ function Tarjeta() {
     });
   };
 
+  console.log(useState.cvc)
+
   const procesarTarjeta = () => {
-    if(useState.cvc===undefined&&useState.expiry===undefined&&useState.name===undefined&&useState.number===undefined){
-      console.log("B");
+    if(useState.cvc===undefined){
+      swal({ title: 'Datos incompletos', icon: 'warning', button: 'Aceptar', closeOnClickOutside: false, closeOnEsc: false });
     }else{
-      console.log("A");
-      swal({ title: 'Tarjeta aceptada!', icon: 'success', button: 'Aceptar', closeOnClickOutside: false, closeOnEsc: false }).then(value => { window.location.href = '#/Perfil'; });
+      swal({ title: 'Tarjeta aceptada!', icon: 'success', button: 'Aceptar', closeOnClickOutside: false, closeOnEsc: false }).then(value => { window.location.href = '/#/Perfil'; });
     }
-    
-  };
-  
+      
+  }; 
 
   return (
     <>
-
-    
       <Jumbotron className="my-5">
         <h1 className="text-right my-5 pr-5">Agregando Tarjeta de Credito</h1>
       </Jumbotron>
@@ -59,7 +55,7 @@ function Tarjeta() {
             required
           />
           <input
-            type="text"
+            type="string"
             name="name"
             placeholder={sessionStorage.getItem('Nombre')}
             onChange={handleInputChange}
@@ -70,7 +66,6 @@ function Tarjeta() {
             name="expiry"
             placeholder="08/23"
             onChange={handleInputChange}
-            maxlength= "9"
             required
           />
           <input
@@ -78,11 +73,10 @@ function Tarjeta() {
             name="cvc"
             placeholder="CVC"
             onChange={handleInputChange}
-            maxlength= "4"
             required
           />
         <div class="vertical-center">
-        <button  class="btn btn-primary" type="submit" onClick={procesarTarjeta} >Guardar tarjeta</button> 
+        <button  id="guardarTarjeta" class="btn btn-primary" type="submit" onClick={procesarTarjeta} >Guardar tarjeta</button> 
         </div> 
         </form>
       </div>

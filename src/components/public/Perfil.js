@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 
 function Perfil() {
+  //console.log(sessionStorage);
 
   return (
     <>
@@ -62,7 +63,7 @@ function Perfil() {
                       <h6 class="mb-0">Suscripción</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                    {sessionStorage.getItem('plan')}
+                    {sessionStorage.getItem('Estado')}
                     </div>
                   </div>
                   
@@ -79,22 +80,12 @@ function Perfil() {
                   <hr></hr>
                   <div class="row">
                     <div class="col-sm-3">
-                      <h6 class="mb-0">Rol</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                    {sessionStorage.getItem('status')}
-                    </div>
-                  </div>
-
-                  <hr></hr>
-                  <div class="row">
-                    <div class="col-sm-3">
                       <h6 class="mb-0">Dirección</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
                         10ª Avenida Sur y Calle Lara No. 934, Barrio San Jacinto
                         <hr></hr>
-                        <button class="btn btn-primary">Administrar direcciones</button>
+                        <Link to="/Mapa" className="btn btn-primary">Administrar direcciones</Link>
                     </div>
                   </div>
                 </div>
