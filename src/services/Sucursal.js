@@ -21,3 +21,19 @@ export function storeSucursales(sucursal) {
         });
     
 }
+
+export function editSucursal(sucursal){
+
+    //const token = await config();
+    const bearer = sessionStorage.getItem("Token");
+    //console.log(token.headers["X-CSRF-TOKEN"]);
+    axios.defaults.headers.common.Authorization = `Bearer  ${bearer}`;
+   
+    
+    axios.put(`http://127.0.0.1:8000/api/editSucursal/${sucursal.id}`, sucursal).then((response) => {
+        swal({ title: 'Sucursal editada correctamente', icon: 'success', button: 'Aceptar', closeOnClickOutside: false, closeOnEsc: false }).then(()=> window.location.reload(true));
+    }).catch((error) => {
+        swal({ title: 'Hubo un error en completar tu solicitud', icon: 'error', button: 'Aceptar', closeOnClickOutside: false, closeOnEsc: false });
+        console.log(error.response);
+    });
+}

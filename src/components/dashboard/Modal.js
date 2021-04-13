@@ -5,7 +5,7 @@ import mapboxgl from 'mapbox-gl/dist/mapbox-gl-csp';
 // eslint-disable-next-line import/no-webpack-loader-syntax
 import MapboxWorker from 'worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker';
 import { storeDoctores } from '../../services/Doctores';
-import { storeSucursales } from '../../services/Sucursal';
+import { storeSucursales, editSucursal } from '../../services/Sucursal';
 
 function Modals(props) {
     const [nombre, setNombre] = useState("");
@@ -124,6 +124,7 @@ function Modals(props) {
                                     <Button variant='success' className="my-2" onClick={() => {
                                         setAccion(1);
                                         setAccion2(false);
+                                        setSucursalEditar(null);
                                     }}>Crear Sucursal</Button>
                                     <table className="table">
                                         <thead>
@@ -226,6 +227,23 @@ function SucursalManage(props) {
        storeSucursales(data);
     });
 
+    const editSuc = (() => {
+        let data = {
+            id: sucursal.id,
+            nombre:nombre ? nombre : sucursal.nombre,
+            ubicacion:ubicacion ? ubicacion : sucursal.ubicacion,
+            puntosReferencia:puntosReferencias ? puntosReferencias : sucursal.puntosReferencia,
+            horarioI:horarioI ? horarioI : sucursal.horarioI,
+            horarioF:horarioF ? horarioF : sucursal.horarioF,
+            descripcion:descripcion ? descripcion : sucursal.descripcion,
+            telefono:telefono ? telefono : sucursal.telefono,
+            municipio:municipio ? municipio : sucursal.municipio,
+            departamento:departamento ? departamento : sucursal.departamento
+        }
+
+       editSucursal(data);
+    });
+
 
     //doctores----------------------------------------------
     const [doctores, setDoctores] = useState(props.doctores);
@@ -253,71 +271,62 @@ function SucursalManage(props) {
         return form_data;
     }
 
-
-    useEffect(() => {
-        if (accion === 3) {
-            setNombre(sucursal.nombre);
-            setUbicacion(sucursal.ubicacion);
-            setPuntosReferencias(sucursal.puntosReferencia);
-            setHorarioI(sucursal.horarioI);
-            setHorarioF(sucursal.horarioF);
-            setDescripcion(sucursal.descripcion);
-            setTelefono(sucursal.telefono);
-            setMunicipio(sucursal.municipio);
-            setDepartamento(sucursal.departamento);
-        }
-
-    }, [])
     switch (accion) {
         case 1:
             return (
                 <>
                     <form className="contact-form row">
                         <div className="form-field col-lg-12">
-                            <input id="name" className="input-text js-input" type="text" value={sucursal ? sucursal.nombre : ''} onChange={(event) => setNombre(event.target.value)} />
+                            <input id="name" className="input-text js-input" type="text" defaultValue={sucursal ? sucursal.nombre : ''} onChange={(event) => setNombre(event.target.value)} />
                             <label className="label">Nombre</label>
                         </div>
                         <div className="form-field col-lg-11">
-                            <input id="ubicacion" className="input-text js-input" type="text" value={sucursal ? sucursal.ubicacion : ubicacion} disabled={true} onChange={(event) => setUbicacion(event.target.value)} />
+                            <input id="ubicacion" className="input-text js-input" type="text" defaultValue={sucursal ? sucursal.ubicacion : ubicacion} disabled={true} onChange={(event) => setUbicacion(event.target.value)} />
                             <label className="label">Ubicacion</label>
                         </div>
                         <div className="form-field col-lg-1">
                             <Button variant="primary" onClick={() => {
                                 setAccion(2);
+                               console.log(sucursal.ubicacion[1]);
                             }}>+</Button>
                         </div>
                         <div className="form-field col-lg-12">
-                            <input id="puntos" className="input-text js-input" type="text" value={sucursal ? sucursal.puntosReferencia : ''} onChange={(event) => setPuntosReferencias(event.target.value)} />
+                            <input id="puntos" className="input-text js-input" type="text" defaultValue={sucursal ? sucursal.puntosReferencia : ''} onChange={(event) => setPuntosReferencias(event.target.value)} />
                             <label className="label">Puntos de Referencia</label>
                         </div>
                         <div className="form-field col-lg-12">
-                            <input id="horarioI" className="input-text js-input" type="text" value={sucursal ? sucursal.horarioI : ''} onChange={(event) => setHorarioI(event.target.value)} />
+                            <input id="horarioI" className="input-text js-input" type="text" defaultValue={sucursal ? sucursal.horarioI : ''} onChange={(event) => setHorarioI(event.target.value)} />
                             <label className="label">Horario de inicio</label>
                         </div>
                         <div className="form-field col-lg-12">
-                            <input id="horarioF" className="input-text js-input" type="text" value={sucursal ? sucursal.horarioF : ''} onChange={(event) => setHorarioF(event.target.value)} />
+                            <input id="horarioF" className="input-text js-input" type="text" defaultValue={sucursal ? sucursal.horarioF : ''} onChange={(event) => setHorarioF(event.target.value)} />
                             <label className="label">Horario de fin</label>
                         </div>
                         <div className="form-field col-lg-12">
-                            <input id="telefono" className="input-text js-input" type="text" value={sucursal ? sucursal.telefono : ''} onChange={(event) => setTelefono(event.target.value)} />
+                            <input id="telefono" className="input-text js-input" type="text" defaultValue={sucursal ? sucursal.telefono : ''} onChange={(event) => setTelefono(event.target.value)} />
                             <label className="label">Telefono</label>
                         </div>
                         <div className="form-field col-lg-12">
-                            <input id="municipio" className="input-text js-input" type="text" value={sucursal ? sucursal.municipio : ''} onChange={(event) => setMunicipio(event.target.value)} />
+                            <input id="municipio" className="input-text js-input" type="text" defaultValue={sucursal ? sucursal.municipio : ''} onChange={(event) => setMunicipio(event.target.value)} />
                             <label className="label">Municipio</label>
                         </div>
                         <div className="form-field col-lg-12">
-                            <input id="departamento" className="input-text js-input" type="text" value={sucursal ? sucursal.departamento : ''} onChange={(event) => setDepartamento(event.target.value)} />
+                            <input id="departamento" className="input-text js-input" type="text" defaultValue={sucursal ? sucursal.departamento : ''} onChange={(event) => setDepartamento(event.target.value)} />
                             <label className="label">Departamento</label>
                         </div>
                         <div className="form-field col-lg-12 ">
-                            <input id="descripcion" className="input-text js-input" type="text" value={sucursal ? sucursal.descripcion : ''} onChange={(event) => setDescripcion(event.target.value)} />
+                            <input id="descripcion" className="input-text js-input" type="text" defaultValue={sucursal ? sucursal.descripcion : ''} onChange={(event) => setDescripcion(event.target.value)} />
                             <label className="label">Descripcion</label>
                         </div>
                     </form>
+                    {sucursal ?  <Button variant="primary" onClick={()=>{
+                        editSuc();
+                    }}> Editar Sucursal</Button>
+                    :  
                     <Button variant="success" onClick={()=>{
                         crearSuc();
-                    }}> Crear Sucursal</Button>
+                    }}> Crear Sucursal</Button>}
+                   
                 </>);
             break;
 
