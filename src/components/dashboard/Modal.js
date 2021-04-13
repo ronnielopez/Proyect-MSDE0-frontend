@@ -51,6 +51,7 @@ function Modals(props) {
                 datos.push({
                     id: doc.id,
                     nombre: doc.nombre,
+                    descripcion:doc.descripcion,
                     categoriaId: doc.categoriaId,
                 });
             });
@@ -263,6 +264,17 @@ function SucursalManage(props) {
 
         storeDoctores(formData(data));
     });
+    const editarDoc = (() => {
+        let data = {
+            nombre: nombreDoc ? nombreDoc : doctor.nombre,
+            foto: foto ? foto : doctor.foto,
+            descripcion: descripcionDoc ? descripcionDoc : doctor.descripcion,
+            sucursalId: sucursal.id,
+            categoriaId: categoria ? categoria : doctor.categoria
+        }
+
+        storeDoctores(formData(data));
+    });
     const formData = (obj) => {
         var form_data = new FormData();
         for (var key in obj) {
@@ -287,7 +299,6 @@ function SucursalManage(props) {
                         <div className="form-field col-lg-1">
                             <Button variant="primary" onClick={() => {
                                 setAccion(2);
-                               console.log(sucursal.ubicacion[1]);
                             }}>+</Button>
                         </div>
                         <div className="form-field col-lg-12">
@@ -369,7 +380,8 @@ function SucursalManage(props) {
                                             <td>{element.nombre}</td>
                                             <td>
                                                 <Button variant='warning' onClick={() => {
-
+                                                    setDoctor(element);
+                                                    setAccion(4);
                                                 }}>Editar</Button>
                                             </td>
                                         </tr>
@@ -389,15 +401,15 @@ function SucursalManage(props) {
             return (<>
                 <form className="contact-form row">
                     <div className="form-field col-lg-12">
-                        <input id="name" className="input-text js-input" type="text" onChange={(event) => setNombreDoc(event.target.value)} />
+                        <input id="name" className="input-text js-input" type="text" defaultValue={doctor ? doctor.nombre : ''} onChange={(event) => setNombreDoc(event.target.value)} />
                         <label className="label">Nombre</label>
                     </div>
                     <div className="form-field col-lg-12">
-                        <input id="foto" className="input-text js-input" type="file" onChange={(event) => setFoto(event.target.files[0])} />
+                        <input id="foto" className="input-text js-input" type="file" defaultValue={doctor ? doctor.foto : ''} onChange={(event) => setFoto(event.target.files[0])} />
                         <label className="label my-5">Foto</label>
                     </div>
                     <div className="form-field col-lg-12">
-                        <input id="descripcion" className="input-text js-input" type="text" onChange={(event) => setDescripcionDoc(event.target.value)} />
+                        <input id="descripcion" className="input-text js-input" type="text" defaultValue={doctor ? doctor.descripcion : ''} onChange={(event) => setDescripcionDoc(event.target.value)} />
                         <label className="label">Descripcion</label>
                     </div>
                     {
@@ -413,12 +425,20 @@ function SucursalManage(props) {
                         )
 
                     }
-
+                    {doctor ?
+                    <div className="form-field col-lg-12 text-center">
+                        <span className="btn btn-outline-info btn-lg" onClick={() => {
+                            editarDoc();
+                        }}>Editar Doctor</span>
+                    </div>
+                   
+                    :
                     <div className="form-field col-lg-12 text-center">
                         <span className="btn btn-outline-info btn-lg" onClick={() => {
                             crearDoc();
                         }}>Crear Doctor</span>
                     </div>
+                    }
                 </form>
             </>);
             break;
