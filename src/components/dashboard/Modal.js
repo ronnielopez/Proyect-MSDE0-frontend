@@ -4,7 +4,7 @@ import axios from 'axios';
 import mapboxgl from 'mapbox-gl/dist/mapbox-gl-csp';
 // eslint-disable-next-line import/no-webpack-loader-syntax
 import MapboxWorker from 'worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker';
-import { storeDoctores } from '../../services/Doctores';
+import { storeDoctores , editDoctores} from '../../services/Doctores';
 import { storeSucursales, editSucursal } from '../../services/Sucursal';
 
 function Modals(props) {
@@ -266,6 +266,7 @@ function SucursalManage(props) {
     });
     const editarDoc = (() => {
         let data = {
+            id: doctor.id,
             nombre: nombreDoc ? nombreDoc : doctor.nombre,
             foto: foto ? foto : doctor.foto,
             descripcion: descripcionDoc ? descripcionDoc : doctor.descripcion,
@@ -273,7 +274,7 @@ function SucursalManage(props) {
             categoriaId: categoria ? categoria : doctor.categoria
         }
 
-        storeDoctores(formData(data));
+        editDoctores(formData(data));
     });
     const formData = (obj) => {
         var form_data = new FormData();
