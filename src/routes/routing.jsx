@@ -7,6 +7,7 @@ import Clinicas from '../components/public/Clinicas';
 import Planes from '../components/Auth/Planes';
 import CrearClinica from '../components/services/crearClinica';
 import MisClinicas from '../components/dashboard/MisClinicas';
+import Recuperar from '../components/Auth/RecuperarContrasena';
 
 
 
@@ -55,6 +56,11 @@ var SiteRoutes = [
     path: '/MisClinicas',
     name: 'Mis clinicas',
     component: MisClinicas
+  },
+  {
+    path: '/Recuperar',
+    name: 'Recuperar Contrasena',
+    component: Recuperar
   },
   { path: '/', pathTo: '/Inicio', name: 'Inicio', redirect: true }
 ];

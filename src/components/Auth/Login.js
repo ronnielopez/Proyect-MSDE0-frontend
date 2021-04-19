@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { loginAuth } from '../../services/LoginAuth';
 import  swal  from 'sweetalert';
-import { Redirect, useHistory } from 'react-router';
+import { useHistory , Link} from 'react-router-dom';
 
 function Login() {
     const history = useHistory();
@@ -48,6 +48,7 @@ function Login() {
                                             <div className="form-group mb-3">
                                                 <input id="inputPassword" type="password" placeholder="Contraseña" className="form-control rounded-pill border-0 shadow-sm px-4 text-primary" onChange={(event) => setPass(event.target.value)} />
                                             </div>
+                                            <Link className="form-group mb-2" to="/Recuperar">Olvido su contraseña?</Link>
                                             <span className="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm" onClick={() => {
                                                 login({ email: email, password: pass });
                                             }}>Ingresar</span>
