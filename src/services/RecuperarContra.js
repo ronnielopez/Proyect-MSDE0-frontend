@@ -9,25 +9,19 @@ export function RecuperarContra(email) {
         email: email
     }
 
-    axios.post("http://127.0.0.1:8000/api/recuperar", dataSubmit).then((response) => {
-        swal({ title: 'Pin enviado a su correo electronico', icon: 'success', button: 'Aceptar', closeOnClickOutside: false, closeOnEsc: false });
-        return response.data;
- 
-    }).catch((error) => {
-
-        swal({ title: 'Hubo un error al enviar la contraseña', icon: 'error', button: 'Aceptar', closeOnClickOutside: false, closeOnEsc: false });
-        return error.response;   
-    });
+    return axios.post("http://127.0.0.1:8000/api/recuperar", dataSubmit);
 
 
 }
 
-export function CambiarContra(password) {
-    const dataSubmit = {
+export function CambiarContra(id, password) {
+    const data = {
+        id: id,
         password: password
     }
-
-    axios.post("http://127.0.0.1:8000/api/cambiarContra", dataSubmit).then((response) => {
+    
+    
+    axios.post("http://127.0.0.1:8000/api/cambiarContra", data).then((response) => {
         swal({ title: 'Contraseña actualizada correctament', icon: 'success', button: 'Aceptar', closeOnClickOutside: false, closeOnEsc: false }).then(value => { window.location.href = '#/Inicio'; window.location.reload(true); });
         return response.data;
  
