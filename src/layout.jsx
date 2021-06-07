@@ -13,10 +13,11 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 
 export default class Fulllayout extends React.Component {
-    constructor(token, nombre){
+    constructor(token, nombre, estado){
         super(token,nombre);
         this.token = sessionStorage.getItem('Token');
         this.nombre = sessionStorage.getItem('Nombre');
+        this.estado = sessionStorage.getItem('Estado');
         
     }
 
@@ -26,6 +27,7 @@ export default class Fulllayout extends React.Component {
         sessionStorage.removeItem('Nombre');
         sessionStorage.removeItem('Estado');
         sessionStorage.removeItem('Email');
+        sessionStorage.removeItem('Id');
         swal({ title: 'Sesion Cerrada', icon: 'success', button: 'Aceptar', closeOnClickOutside: false, closeOnEsc: false }).then(value=>{window.location.href = '#/Inicio'; window.location.reload(true);});
     }
 
@@ -55,7 +57,8 @@ export default class Fulllayout extends React.Component {
                             <Link to="/Clinicas" className='text-dark nav-link'>Clinicas</Link>
                         </Nav>
                         <Nav>
-                            {this.token != null ? 
+                            {
+                            this.estado > 1 ? 
                             <>
                             <NavDropdown title={this.nombre} id="collasible-nav-dropdown">
                             <NavDropdown.Item >Perfil</NavDropdown.Item>
@@ -64,10 +67,21 @@ export default class Fulllayout extends React.Component {
                             <NavDropdown.Item onClick={()=>{
                                 this.CerrarSesion();
                             }}>Cerrar Sesion</NavDropdown.Item>
-                            </NavDropdown> 
+                            </NavDropdown>  
+                            </>
+                             : 
+                            this.token !== null ? 
+                            <>
+                            <NavDropdown title={this.nombre} id="collasible-nav-dropdown">
+                            <NavDropdown.Item >Perfil</NavDropdown.Item>
+                            <NavDropdown.Divider />
+                            <NavDropdown.Item onClick={()=>{
+                                this.CerrarSesion();
+                            }}>Cerrar Sesion</NavDropdown.Item>
+                            </NavDropdown>
                             </>
                             :
-                            <>
+                            <>  
                             <Link to="/Registrar" className='text-secondary nav-link' >Registrar</Link>
                             <Link to="/Login" className='text-secondary nav-link' >Iniciar Sesion</Link>
                             </>

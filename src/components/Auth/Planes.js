@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import { PlanesAuth } from '../../services/PlanesAuth';
 import axios from 'axios';
+import swal from "sweetalert";
 
 
 function Planes() {
@@ -80,7 +81,7 @@ function Planes() {
 						<div className="col-md-4">
 							<div className="card pricing-box pricing-premium">
 								<div className="card-block">
-								<h4 className="card-title">
+									<h4 className="card-title">
 										{isLoading ? cplanes[1].nombre : 'Cargando datoos'}
 									</h4>
 									<h6 className="card-text">
@@ -116,7 +117,7 @@ function Planes() {
 						<div className="col-md-4 animated slideInLeft">
 							<div className="card pricing-box">
 								<div className="card-block">
-								<h4 className="card-title">
+									<h4 className="card-title">
 										{isLoading ? cplanes[2].nombre : 'Cargando datoos'}
 									</h4>
 									<h6 className="card-text">
@@ -148,6 +149,11 @@ function Planes() {
 									}}>Escoger</span>
 								</div>
 							</div>
+						</div>
+						<div className="col-md-12 my-5">
+							<span className="btn btn-outline-secondary" onClick={() => {
+								swal({ title: 'Bienvenido a Alpha - Medic', icon: 'success', button: 'Aceptar', closeOnClickOutside: false, closeOnEsc: false }).then(value => { window.location.href = '#/Inicio'; window.location.reload(true); });
+							}}>Solo usuario</span>
 						</div>
 					</div>
 				</div>

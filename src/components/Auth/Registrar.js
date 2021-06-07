@@ -35,7 +35,7 @@ function Registrar() {
                                 <div className="row">
                                 <div className="col-lg-10 col-xl-7 mx-auto">
                                         <h3 className="display-4">Registrate</h3>
-                                        <p className="text-muted mb-4">Empieza yaaa con nosotros!!</p>
+                                        <p className="text-muted mb-4">Empieza ya con nosotros!!</p>
                                         <form>
                                         <div className="form-group mb-3">
                                                 <input id="inputNombre" type="text" placeholder="Nombre Completo" className="form-control rounded-pill border-0 shadow-sm px-4"  onChange={(event) => setNombre(event.target.value)}/>
